@@ -17,3 +17,23 @@ let title = "Lorem Ipsum";
 let author;
 
 
+
+
+//Print story and title
+const storyTitle = document.querySelector("#story-title");
+const storyBody = document.querySelector("#story-body");
+
+storyTitle.textContent = title;
+storyBody.textContent = story;
+
+
+
+//On button click set author name to user input
+const submitButton = document.querySelector("#add-author");
+
+submitButton.addEventListener("click", () => {
+  const AuthorName = document.querySelector("#author-name");
+  const userInput = document.querySelector("#user-input");
+
+  AuthorName.textContent = userInput.value;
+});
