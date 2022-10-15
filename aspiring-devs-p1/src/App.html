@@ -8,17 +8,23 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
     <link rel="manifest" href="../site.webmanifest" />
-    <title>First Project</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+
+    <!-- Import http service and index -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="services/http.service.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <title>Project</title>
   </head>
   <!-- Don't worry about anything above this line -->
   <body>
     <!-- Replace everything in here -->
     <h1 class="text-3xl text-center my-5">The Grand Library</h1>
 
-    <div class="text-center p-32">
+    <div class="text-center p-16">
       <h1 id="story-title" class="text-3xl font-extrabold">Title</h1>
       <h2 id="author-name"></h2>
-      <p id="story-body" class="mt-10">Story Body</p>
+      <p id="story-body" class="mt-10 whitespace-pre-wrap">Story Body</p>
     </div>
 
     <div class="lg:w-1/2 mx-auto">
@@ -39,5 +45,3 @@
     <!-- Don't delete below this line -->
   </body>
 </html>
-<script type="text/javascript" src="index.js"></script>
-<link rel="stylesheet" href="style.css">

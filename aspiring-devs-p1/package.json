@@ -1,5 +1,12 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.1.8"
+  },
+  "dependencies": {
+    "better-sqlite3": "^7.6.2"
+  },
+  "scripts": {
+    "server": "node 'DO_NOT_TOUCH/bootstrap.js'",
+    "tailwind-run": "npx tailwindcss -i ./src/input.css -o ./src/style.css --watch" 
   }
 }
