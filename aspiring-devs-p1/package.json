@@ -1,12 +1,28 @@
 {
-  "devDependencies": {
-    "tailwindcss": "^3.1.8"
-  },
-  "dependencies": {
-    "better-sqlite3": "^7.6.2"
-  },
+  "name": "aspiring-devs-p2",
+  "version": "1.0.2",
+  "description": "Second project for Aspiring Devs",
+  "main": "DO_NOT_TOUCH/bootstrap.js",
   "scripts": {
+    "test": "npm run test",
     "server": "node 'DO_NOT_TOUCH/bootstrap.js'",
-    "tailwind-run": "npx tailwindcss -i ./src/input.css -o ./src/style.css --watch" 
+    "serve": "npx http-server ./ --port=9218 --cors -o src/App.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojsung/aspiring-devs-p2.git"
+  },
+  "author": "ojsung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ojsung/aspiring-devs-p2/issues"
+  },
+  "homepage": "https://github.com/ojsung/aspiring-devs-p2#readme",
+  "dependencies": {
+    "better-sqlite3": "^7.6.2",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http-server": "^14.1.1"
   }
 }
