@@ -1,16 +1,50 @@
 const http = new HttpService();
 
 let xyz = document.getElementById('console-log');
+const getButton = document.getElementById('get-story');
+const story_id = document.getElementById('story-id');
+const getStoryById = document.getElementById('get-story-id');
+const cleartext = document.getElementById('clear');
 let story;
 
-http.get('story').then((res) => {
-    story = res.data[0].story_content;
-    xyz.innerText = story;
+getButton.onclick = async () => {
+    http.get('story').then((res) => {
+        console.dir(res);
+        story = res.data[0].story_content;
+        xyz.innerText = story;
 });
+}
+
+getStoryById.onclick = () => {
+    let path = `story/${story_id.value}`;
+    http.get(path).then((res) => {
+        if (res.data.story_content) {
+            story = res.data.story_content;
+            xyz.innerText = story;
+        } else {
+            xyz.innerText = 'No story found';
+        }
+    })
+};
+
+
+cleartext.onclick = () => {
+    xyz.innerText = "";
+}
 
 
 
 
+
+const post_story = document.getElementById('post_story');
+const post_story_content = document.getElementById('post_story_content');
+const post_story_title = document.getElementById('post_story_title');
+
+post_story.onclick = async () => {
+    http.post('story', post_story_content.value, post_story_title.value).then((res) => {
+        console.dir(res);
+});
+}
 
 
 //import http
