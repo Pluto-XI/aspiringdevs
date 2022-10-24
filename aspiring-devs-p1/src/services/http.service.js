@@ -89,8 +89,18 @@ class HttpService {
         return res;
     }
     
-    async put() {
-        throw new Error("NOT IMPLEMENTED")
+    async put(storyID, story, title) {
+        const res = await axios({
+            method: 'put',
+            url: `${this.#baseUrl}/story/${storyID}`,
+            data: {
+                story_title: title,
+                story_content: story
+              },
+            headers: {'authorization': 'test-user test'}
+          });
+
+        return res;
     }
     
     async delete() {

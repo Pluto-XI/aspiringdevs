@@ -46,6 +46,17 @@ post_story.onclick = async () => {
 });
 }
 
+const update_story = document.getElementById('update_story');
+const update_story_id = document.getElementById('update_story_id');
+const update_story_content = document.getElementById('update_story_content');
+const update_story_title = document.getElementById('update_story_title');
+
+update_story.onclick = async () => {
+    http.put(update_story_id.value, update_story_content.value, update_story_title.value).then((res) => {
+        console.dir(res);
+});
+}
+
 
 //import http
 //http get
