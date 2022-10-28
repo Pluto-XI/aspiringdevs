@@ -10,6 +10,13 @@ const storyTable = document.getElementById('story-table');
 const id_title = document.getElementById('id-title')
 const id_story = document.getElementById('id-story')
 
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+
+function combineHeader(username, password) {
+    return `${username} ${password}`;
+}
+
 
 
 getButton.onclick = async () => {
@@ -88,9 +95,13 @@ const post_story_content = document.getElementById('post_story_content');
 const post_story_title = document.getElementById('post_story_title');
 
 post_story.onclick = async () => {
-    http.post('story', post_story_content.value, post_story_title.value).then((res) => {
-        console.dir(res);
-});
+    http.post('story', post_story_content.value, post_story_title.value, combineHeader(username.value, password.value))
+        .then((res) => {
+            alert("Story created");
+        }).catch((error) => {
+            alert("Failed to create");
+            console.log(error);
+        });
 }
 
 const update_story = document.getElementById('update_story');
@@ -99,9 +110,13 @@ const update_story_content = document.getElementById('update_story_content');
 const update_story_title = document.getElementById('update_story_title');
 
 update_story.onclick = async () => {
-    http.put(update_story_id.value, update_story_content.value, update_story_title.value).then((res) => {
-        console.dir(res);
-});
+    http.put(update_story_id.value, update_story_content.value, update_story_title.value, combineHeader(username.value, password.value))
+    .then((res) => {
+        alert("Story Updated");
+    }).catch((error) => {
+        alert("Failed to Update");
+        console.log(error);
+    });
 }
 
 
@@ -109,10 +124,13 @@ const delete_id = document.getElementById('delete-id');
 const deleteStoryById = document.getElementById('delete-story-id');
 
 deleteStoryById.onclick = () => {
-    http.delete(delete_id.value).then((res) => {
-        console.log(delete_id.value, "deleted");
-        console.dir(res);
-    })
+    http.delete(delete_id.value, combineHeader(username.value, password.value))
+    .then((res) => {
+        alert("Story Deleted");
+    }).catch((error) => {
+        alert("Failed to Delete");
+        console.log(error);
+    });
 };
 
 

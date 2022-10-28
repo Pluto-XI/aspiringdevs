@@ -73,7 +73,7 @@ class HttpService {
     return response;
   }
 
-  async post(path, story, title) {
+  async post(path, story, title, auth) {
     const res = await axios({
       method: "post",
       url: `${this.#baseUrl}/${path}`,
@@ -81,14 +81,14 @@ class HttpService {
         story_title: title,
         story_content: story,
       },
-      headers: { authorization: "test-user test" },
+      headers: { authorization: auth },
     });
 
     console.dir(res);
     return res;
   }
 
-  async put(storyID, story, title) {
+  async put(storyID, story, title, auth) {
     const res = await axios({
       method: "put",
       url: `${this.#baseUrl}/story/${storyID}`,
@@ -96,17 +96,17 @@ class HttpService {
         story_title: title,
         story_content: story,
       },
-      headers: { authorization: "test-user test" },
+      headers: { authorization: auth },
     });
 
     return res;
   }
 
-  async delete(storyID) {
+  async delete(storyID, auth) {
     const res = await axios({
       method: "delete",
       url: `${this.#baseUrl}/story/${storyID}`,
-      headers: { authorization: "test-user test" },
+      headers: { authorization: auth },
     });
 
     return res;
