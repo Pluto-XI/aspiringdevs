@@ -1,4 +1,4 @@
-const port = 9219
+const port = 9219;
 /**
  * 
  * For this class, Axios has been provided. Feel free to use window.fetch too if you prefer.
@@ -66,46 +66,51 @@ const port = 9219
 
 //Async is nuts, await a line that needs to be resolved first.
 
-
 class HttpService {
-    #baseUrl = `http://localhost:${port}`
-    async get(path) {
-        const response = await axios.get(`${this.#baseUrl}/${path}`);
-        return response;
-    }
-    
-    async post(path, story, title) {
-        const res = await axios({
-            method: 'post',
-            url: `${this.#baseUrl}/${path}`,
-            data: {
-                story_title: title,
-                story_content: story
-              },
-            headers: {'authorization': 'test-user test'}
-          });
+  #baseUrl = `http://localhost:${port}`;
+  async get(path) {
+    const response = await axios.get(`${this.#baseUrl}/${path}`);
+    return response;
+  }
 
-        console.dir(res);
-        return res;
-    }
-    
-    async put(storyID, story, title) {
-        const res = await axios({
-            method: 'put',
-            url: `${this.#baseUrl}/story/${storyID}`,
-            data: {
-                story_title: title,
-                story_content: story
-              },
-            headers: {'authorization': 'test-user test'}
-          });
+  async post(path, story, title) {
+    const res = await axios({
+      method: "post",
+      url: `${this.#baseUrl}/${path}`,
+      data: {
+        story_title: title,
+        story_content: story,
+      },
+      headers: { authorization: "test-user test" },
+    });
 
-        return res;
-    }
-    
-    async delete() {
-        throw new Error("NOT IMPLEMENTED")
-    }
+    console.dir(res);
+    return res;
+  }
+
+  async put(storyID, story, title) {
+    const res = await axios({
+      method: "put",
+      url: `${this.#baseUrl}/story/${storyID}`,
+      data: {
+        story_title: title,
+        story_content: story,
+      },
+      headers: { authorization: "test-user test" },
+    });
+
+    return res;
+  }
+
+  async delete(storyID) {
+    const res = await axios({
+      method: "delete",
+      url: `${this.#baseUrl}/story/${storyID}`,
+      headers: { authorization: "test-user test" },
+    });
+
+    return res;
+  }
 }
 
-window.httpService = HttpService
+window.httpService = HttpService;

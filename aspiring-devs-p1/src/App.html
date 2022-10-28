@@ -30,23 +30,37 @@
     <link rel="manifest" href="../site.webmanifest" />
     <title>First Project</title>
   </head>
-  <!-- Don't worry about anything above this line -->
+
   <body>
-    <!-- Replace everything in here -->
-    <h1>Get request /story</h1>
-    <p id="console-log">console-log</p>
-    <input id="get-story" type="button" value="Get /story ">
+    <h1>The Library of <i>CRUD</i></h1>
     <input id="story-id" type="text">
     <input id="get-story-id" type="button" value="Get /story/id">
     <input id="clear" type="button" onclick="clear" value="clear-text">
+
+    <p id="id-title"></p>
+    <p id="id-story"></p>
+
+
+
     <hr>
     <input id="post_story_content" type="text" placeholder="story body">
     <input id="post_story_title" type="text" placeholder="title">
-    <input id="post_story" type="button" value="POST /story">
+    <input id="post_story" type="button" value="Create Story">
     <hr>
     <input id="update_story_content" type="text" placeholder="story body">
     <input id="update_story_title" type="text" placeholder="title">
     <input id="update_story_id" type="text" placeholder="Story ID">
-    <input id="update_story" type="button" value="UPDATE PUT /story">
+    <input id="update_story" type="button" value="Update By ID">
+
+<hr>
+    <input id="delete-id" type="text">
+    <input id="delete-story-id" type="button" value="Delete by ID">
+
+<hr>
+    <input id="get-story" type="button" value="View All Stories">
+
+    <table id="story-table">
+    </table>
+
   </body>
 </html>
