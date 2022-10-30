@@ -81,6 +81,75 @@ getStoryById.onclick = () => {
 };
 
 
+/* <input id="user-stories" type="text" placeholder="Username">
+<input id="get-story-by-username" type="button" value="Get /story/username"> 
+
+ * ### The `/user_stories/$username` Endpoint
+ * This is an optional endpoint that you can implement if you'd like more practice.  Again, it is not expected that you implement this endpoint.  It's only here for additional practice if you want it.
+ *   - This endpoint will return all the stories stored in the database for the username provided.
+ *   - Only the GET method is available for this endpoint
+ *   - A reminder: when passing in the username, don't include the `$` symbol
+ *   
+ */
+
+const getStoryByUser = document.getElementById('get-story-by-username'); 
+const getStoryByUserInput = document.getElementById('user-stories');
+
+getStoryByUser.onclick = () => {
+    while (storyTable.lastChild) {
+        storyTable.removeChild(storyTable.lastChild);
+    }
+
+    let tableHeaders = document.createElement('tr');
+    let tableId = document.createElement('th');
+    let tableTitle = document.createElement('th');
+    let tableStory = document.createElement('th');
+
+    tableId.textContent = "Story ID";
+    tableTitle.textContent = "Title";
+    tableStory.textContent = "Story";
+
+    tableHeaders.appendChild(tableId);
+    tableHeaders.appendChild(tableTitle);
+    tableHeaders.appendChild(tableStory);
+
+    storyTable.appendChild(tableHeaders);
+
+    let path = `user_stories/${getStoryByUserInput.value}`;
+    http.get(path)
+        .then((res) => {
+            for (let i = 0; i < res.data.length; i++) {
+
+                //create table row
+                let tableRow = document.createElement('tr');
+    
+                //Create table data
+                let storyId = document.createElement('td');
+                let storyTitle = document.createElement('td');
+                let story = document.createElement('td');
+    
+    
+                //assign table content
+                storyId.textContent = res.data[i].id;
+                storyTitle.textContent = res.data[i].story_title;
+                story.textContent = res.data[i].story_content;
+    
+                //append table content to tableRow
+                tableRow.appendChild(storyId);
+                tableRow.appendChild(storyTitle);
+                tableRow.appendChild(story);
+    
+                //Add to parent
+                storyTable.appendChild(tableRow);
+            }
+        }).catch((error) => {
+            alert('No Stories Found With Username: ' + getStoryByUserInput.value);
+        })
+}
+
+
+
+
 cleartext.onclick = () => {
     id_title.innerText = "";
     id_story.innerText = "";

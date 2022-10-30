@@ -1,0 +1,48 @@
+body {
+    min-height: 100vh;
+    font-family: monospace;
+    text-align: center;
+
+    background-color: #ffebcd;
+}
+
+hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 80%;
+}
+
+.Title {
+    text-align: center;
+    padding: 2rem;
+    margin-inline: auto;
+}
+
+.Title h1 {
+    font-size: 2rem;
+}
+
+#story-table {
+    border: 2px solid black;
+    max-width: 75%;
+    margin-inline: auto;
+}
+
+#story-table th {
+    font-size: 2rem;
+    border: 2px solid black;
+}
+
+#story-table td {
+    border: 2px solid black;
+    padding: 1rem;
+}
+
+.get-by-id {
+    padding: 1rem;
+    text-align: center;
+}
+
+.show-all {
+    padding: 2rem;
+}

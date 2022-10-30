@@ -28,22 +28,29 @@
       href="../favicon-16x16.png"
     />
     <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="style.css">
     <title>First Project</title>
   </head>
 
   <body>
+    <div class="Title">
     <h1>The Library of <i>CRUD</i></h1>
+    <p>Introducing... <i><b>blanched almond!</b></i></p>
+    <p>Remember to authenticate!</p>
     <input id="username" type="text" placeholder="username">
     <input id="password" type="password" placeholder="Password">
+    </div>
 
     <hr>
+    <div class="get-by-id">
+    <input id="story-id" type="text" placeholder="Story ID" >
+    <input id="get-story-id" type="button" value="Get By Story ID">
 
-    <input id="story-id" type="text">
-    <input id="get-story-id" type="button" value="Get /story/id">
-    <input id="clear" type="button" onclick="clear" value="clear-text">
+    <input id="clear" type="button" onclick="clear" value="Clear Text">
 
     <p id="id-title"></p>
     <p id="id-story"></p>
+    </div>
 
 
 
@@ -58,11 +65,17 @@
     <input id="update_story" type="button" value="Update By ID">
 
 <hr>
-    <input id="delete-id" type="text">
+    <input id="delete-id" type="text" placeholder="Story ID">
     <input id="delete-story-id" type="button" value="Delete by ID">
 
 <hr>
+<div class="show-all">
     <input id="get-story" type="button" value="View All Stories">
+
+
+    <input id="user-stories" type="text" placeholder="Username">
+    <input id="get-story-by-username" type="button" value="Get Story By Username">
+</div>
 
     <table id="story-table">
     </table>
